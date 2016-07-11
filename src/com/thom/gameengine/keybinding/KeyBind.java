@@ -2,7 +2,7 @@ package com.thom.gameengine.keybinding;
 
 /**
  * @author Thomas Boel Micheelsen
- * @since 10-07-2016
+ * @since 08-07-2016
  */
 public enum KeyBind 
 {

@@ -10,7 +10,7 @@ import com.thom.gameengine.keybinding.KeyStrokeList;
 
 /**
  * @author Thomas Boel Micheelsen
- * @since 10-07-2016
+ * @since 02-07-2016
  */
 @SuppressWarnings("serial")
 public abstract class Game extends JFrame

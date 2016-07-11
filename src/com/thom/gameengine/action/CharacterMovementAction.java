@@ -5,6 +5,10 @@ import java.awt.event.ActionEvent;
 import com.thom.gameengine.animation.AnimationState;
 import com.thom.gameengine.spritesystem.AnimatedSprite;
 
+/**
+ * @author Thomas Boel Micheelsen
+ * @since 11-07-2016
+ */
 @SuppressWarnings("serial")
 public class CharacterMovementAction extends GameAction
 {

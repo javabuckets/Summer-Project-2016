@@ -6,7 +6,7 @@ import com.thom.gameengine.gui.Label;
 
 /**
  * @author Thomas Boel Micheelsen
- * @since 11-07-2016
+ * @since 10-07-2016
  */
 @SuppressWarnings("serial")
 public class Sprite extends Label

@@ -9,7 +9,7 @@ import javax.swing.ImageIcon;
 
 /**
  * @author Thomas Boel Micheelsen
- * @since 10-07-2016
+ * @since 02-07-2016
  */
 public class ImagerHandler 
 {

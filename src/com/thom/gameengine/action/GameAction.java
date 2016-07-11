@@ -6,7 +6,7 @@ import javax.swing.AbstractAction;
 
 /**
  * @author Thomas Boel Micheelsen
- * @since 10-07-2016
+ * @since 08-07-2016
  */
 @SuppressWarnings("serial")
 public abstract class GameAction extends AbstractAction

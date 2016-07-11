@@ -8,7 +8,7 @@ import javax.swing.KeyStroke;
 
 /**
  * @author Thomas Boel Micheelsen
- * @since 10-07-2016
+ * @since 08-07-2016
  */
 public class KeyStrokeList 
 {

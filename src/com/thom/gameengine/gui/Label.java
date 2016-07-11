@@ -5,16 +5,11 @@ import javax.swing.JLabel;
 
 /**
  * @author Thomas Boel Micheelsen
- * @since 10-07-2016
+ * @since 04-07-2016
  */
 @SuppressWarnings("serial")
 public class Label extends JLabel
 {
-	public Label() 
-	{
-		super("");
-	}
-	
 	public Label(String text)
 	{
 		super(text);
@@ -23,5 +18,10 @@ public class Label extends JLabel
 	public Label(ImageIcon icon)
 	{
 		super(icon);
+	}
+	
+	public Label() 
+	{
+		this("");
 	}
 }
