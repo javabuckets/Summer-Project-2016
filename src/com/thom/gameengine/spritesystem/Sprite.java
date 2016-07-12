@@ -24,7 +24,7 @@ public class Sprite extends Label
 		this(spritesheet, row * spritesheet.getSpriteSizes().width, column * spritesheet.getSpriteSizes().height, spritesheet.getSpriteSizes().width, spritesheet.getSpriteSizes().height);
 	}
 	
-	public SpriteSheet getSpriteSheet() 
+	public SpriteSheet getSpriteSheet()
 	{
 		return spritesheet;
 	}

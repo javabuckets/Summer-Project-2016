@@ -41,8 +41,8 @@ public abstract class Game extends JFrame
 
 	public abstract void handleKeyBinds();
 	
-	public void addComponent(JComponent component)
+	public void addComponent(JComponent component, int priority)
 	{
-		gamePanel.add(component);
+		gamePanel.add(component, 0, priority);
 	}
 }

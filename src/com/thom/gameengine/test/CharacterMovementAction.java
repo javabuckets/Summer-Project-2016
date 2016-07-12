@@ -14,6 +14,8 @@ public class CharacterMovementAction extends GameAction
 	AnimationState state;
 	int speed;
 	
+	int stage = 1;
+	
 	public CharacterMovementAction(AnimatedSprite character, AnimationState state, int speed) 
 	{
 		this.character = character;
@@ -27,22 +29,25 @@ public class CharacterMovementAction extends GameAction
 		if (this.state == AnimationState.front)
 		{
 			this.character.setLocation(this.character.getLocation().x, this.character.getLocation().y + this.speed);
-			character.setSprite(new Sprite(character.getSpriteSheet(), 1, 0));
+			character.setSprite(new Sprite(character.getSpriteSheet(), stage, 0));
 		}
 		else if (this.state == AnimationState.back)
 		{
 			this.character.setLocation(this.character.getLocation().x, this.character.getLocation().y - this.speed);
-			character.setSprite(new Sprite(character.getSpriteSheet(), 1, 3));
+			character.setSprite(new Sprite(character.getSpriteSheet(), stage, 3));
 		}
 		else if (this.state == AnimationState.left)
 		{
 			this.character.setLocation(this.character.getLocation().x - this.speed, this.character.getLocation().y);
-			character.setSprite(new Sprite(character.getSpriteSheet(), 1, 1));
+			character.setSprite(new Sprite(character.getSpriteSheet(), stage, 1));
 		}
 		else if (this.state == AnimationState.right)
 		{
 			this.character.setLocation(this.character.getLocation().x + this.speed, this.character.getLocation().y);
-			character.setSprite(new Sprite(character.getSpriteSheet(), 1, 2));
+			character.setSprite(new Sprite(character.getSpriteSheet(), stage, 2));
 		}
+		stage++;
+		if (stage == 3)
+			stage = 0;
 	}
 }
