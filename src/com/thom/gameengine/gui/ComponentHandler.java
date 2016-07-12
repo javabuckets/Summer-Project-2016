@@ -4,6 +4,7 @@ import java.awt.Point;
 
 import javax.swing.ImageIcon;
 
+import com.thom.gameengine.player.Player;
 import com.thom.gameengine.spritesystem.Sprite;
 
 /**
@@ -12,6 +13,13 @@ import com.thom.gameengine.spritesystem.Sprite;
  */
 public class ComponentHandler 
 {
+	public static Player addPlayer(Player player, Point position)
+	{
+		player.setBounds(position.x, position.y, player.getSprite().getSpriteSheet().getSpriteSizes().width, player.getSprite().getSpriteSheet().getSpriteSizes().height);
+		player.setVisible(true);
+		return player;
+	}
+	
 	/**
 	 * Graphical User Interface
 	 */

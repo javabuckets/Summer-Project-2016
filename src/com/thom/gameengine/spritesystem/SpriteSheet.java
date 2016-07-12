@@ -15,7 +15,7 @@ import com.thom.gameengine.gui.Label;
 public class SpriteSheet extends Label
 {
 	private BufferedImage spritesheet;
-	private Dimension spriteSizes;
+	private Dimension spriteSizes;;
 	
 	/**
 	 * @param spritesheet The BufferedImage that the SpriteSheet will represent.

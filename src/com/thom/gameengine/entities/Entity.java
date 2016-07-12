@@ -2,18 +2,21 @@ package com.thom.gameengine.entities;
 
 import java.awt.Point;
 
-import com.thom.gameengine.gui.Label;
 import com.thom.gameengine.spritesystem.AnimatedSprite;
 
+/**
+ * @author Thomas Boel Micheelsen
+ * @since 11-07-2016
+ */
 @SuppressWarnings("serial")
-public class Entity extends Label
+public class Entity extends AnimatedSprite
 {
 	private AnimatedSprite sprite;
 	private Point position;
 	
 	public Entity(AnimatedSprite sprite) 
 	{
-		super();
+		super(sprite.getSpriteSheet(), sprite.getRow(), sprite.getColumn());
 		this.setSprite(sprite);
 	}
 
@@ -35,5 +38,10 @@ public class Entity extends Label
 	public void setPosition(Point position) 
 	{
 		this.position = position;
+	}	
+	
+	public void setPosition(int x, int y) 
+	{
+		this.setPosition(new Point(x, y));
 	}	
 }
