@@ -1,5 +1,7 @@
 package com.thom.gameengine.gameobjects;
 
+import javax.swing.ImageIcon;
+
 import com.thom.gameengine.gui.Label;
 import com.thom.gameengine.spritesystem.AnimatedSprite;
 import com.thom.gameengine.spritesystem.Sprite;
@@ -14,6 +16,11 @@ public class GameObject extends Label
 	public GameObject()
 	{
 		super();
+	}
+	
+	public GameObject(ImageIcon imageIcon) 
+	{
+		super(imageIcon);
 	}
 	
 	public GameObject(Sprite sprite) 

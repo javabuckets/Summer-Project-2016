@@ -4,6 +4,9 @@ import java.awt.Point;
 
 import javax.swing.ImageIcon;
 
+import com.thom.gameengine.entities.EntityCollider;
+import com.thom.gameengine.gameobjects.GameObject;
+import com.thom.gameengine.gameobjects.GameObjectCollider;
 import com.thom.gameengine.player.Player;
 import com.thom.gameengine.spritesystem.Sprite;
 
@@ -13,11 +16,19 @@ import com.thom.gameengine.spritesystem.Sprite;
  */
 public class ComponentHandler 
 {
-	public static Player addPlayer(Player player, Point position)
+	public static Player addPlayer(Player player, Point position, EntityCollider collider)
 	{
 		player.setBounds(position.x, position.y, player.getSprite().getSpriteSheet().getSpriteSizes().width, player.getSprite().getSpriteSheet().getSpriteSizes().height);
 		player.setVisible(true);
+		player.setCollider(collider);
 		return player;
+	}
+	
+	public static GameObject addGameObject(GameObject object, Point position, GameObjectCollider collider)
+	{
+		object.setBounds(position.x, position.y, object.getIcon().getIconWidth(), object.getIcon().getIconHeight());
+		object.setVisible(true);
+		return object;
 	}
 	
 	/**

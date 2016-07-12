@@ -11,7 +11,8 @@ import com.thom.gameengine.gui.Label;
 @SuppressWarnings("serial")
 public class Sprite extends Label
 {
-	SpriteSheet spritesheet;
+	protected SpriteSheet spritesheet;
+	private int row, column;
 	
 	public Sprite(SpriteSheet spritesheet, int x, int y, int u, int v) 
 	{
@@ -22,10 +23,32 @@ public class Sprite extends Label
 	public Sprite(SpriteSheet spritesheet, int row, int column)
 	{
 		this(spritesheet, row * spritesheet.getSpriteSizes().width, column * spritesheet.getSpriteSizes().height, spritesheet.getSpriteSizes().width, spritesheet.getSpriteSizes().height);
+		setRow(row);
+		setColumn(column);
 	}
 	
 	public SpriteSheet getSpriteSheet()
 	{
 		return spritesheet;
+	}
+	
+	public int getRow() 
+	{
+		return row;
+	}
+
+	public void setRow(int row) 
+	{
+		this.row = row;
+	}
+
+	public int getColumn() 
+	{
+		return column;
+	}
+
+	public void setColumn(int column) 
+	{
+		this.column = column;
 	}
 }

@@ -7,6 +7,7 @@ import javax.swing.JFrame;
 
 import com.thom.gameengine.gametype.GameType;
 import com.thom.gameengine.keybinding.KeyStrokeList;
+import com.thom.gameengine.world.World;
 
 /**
  * @author Thomas Boel Micheelsen
@@ -16,6 +17,7 @@ import com.thom.gameengine.keybinding.KeyStrokeList;
 public abstract class Game extends JFrame
 {
 	protected GamePanel gamePanel = new GamePanel();
+	protected World world = new World();
 	
 	public Game(Dimension par1Dimension, boolean windowed)
 	{
@@ -43,6 +45,6 @@ public abstract class Game extends JFrame
 	
 	public void addComponent(JComponent component, int priority)
 	{
-		gamePanel.add(component, 0, priority);
+		gamePanel.add(component, priority, 0);
 	}
 }
