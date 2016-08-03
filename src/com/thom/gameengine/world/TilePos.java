@@ -8,7 +8,7 @@ public class TilePos
 {
 	private int x, y;
 	
-	public TilePos(World world, int x, int y) 
+	public TilePos(int x, int y) 
 	{
 		this.setX(x);
 		this.setY(y);

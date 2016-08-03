@@ -1,49 +1,72 @@
 package com.thom.gameengine.world;
 
-import com.thom.gameengine.gameobjects.GameObjectCollider;
-import com.thom.gameengine.spritesystem.AnimatedSprite;
+import com.thom.gameengine.gameobject.GameObject;
+import com.thom.gameengine.gameobject.GameObjectCollider;
 
 /**
  * @author Thomas Boel Micheelsen
  * @since 12-07-2016
  */
 @SuppressWarnings("serial")
-public class Tile extends AnimatedSprite
+public class Tile extends GameObject
 {
-	private boolean containsCollisionBox = false;
+	private boolean hasCollider = false;
 	private GameObjectCollider collider = null;
 	
 	private TilePos tilePosition;
 	
-	public Tile(AnimatedSprite sprite) 
-	{
-		super(sprite.getSpriteSheet(), sprite.getRow(), sprite.getColumn());
-	}
-	
-	public boolean hasCollider()
-	{
-		return this.containsCollisionBox;
-	}
-	
-	public Tile addCollider(GameObjectCollider collider)
-	{
-		this.collider = collider;
-		this.containsCollisionBox = true;
-		return this;
-	}
+	private String tileType;
 
+	public Tile(TilePos tilePos, GameObjectCollider collider, String type)
+	{
+		this.setTilePosition(tilePos);
+		this.addCollider(collider);
+		this.setTileTypeName(type);
+	}
+	
+	public Tile(TilePos tilePos, String type)
+	{
+		this(tilePos, null, type);
+	}
+	
+	public boolean isCollidable() 
+	{
+		return hasCollider;
+	}
+	
 	public GameObjectCollider getCollider() 
 	{
 		return collider;
 	}
-
-	public TilePos getTilePosition() 
+	
+	public Tile addCollider(GameObjectCollider collider)
+	{
+		if (collider != null)
+		{
+			this.collider = collider;
+			this.hasCollider = true;
+			return this;
+		}
+		return this;
+	}
+	
+	public void setTilePosition(TilePos pos)
+	{
+		this.tilePosition = pos;
+	}
+	
+	public TilePos getTilePosition()
 	{
 		return tilePosition;
 	}
 
-	public void setTilePosition(TilePos tilePosition) 
+	public String getTileTypeName() 
 	{
-		this.tilePosition = tilePosition;
+		return tileType;
+	}
+
+	public void setTileTypeName(String name) 
+	{
+		this.tileType = name;
 	}
 }
