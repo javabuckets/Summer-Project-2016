@@ -2,8 +2,11 @@ package com.thom.mapcreator.gui;
 
 import java.awt.Color;
 import java.awt.Point;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseListener;
 
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
@@ -26,6 +29,25 @@ public class GuiScreen
 		return label;
 	}
 	
+	public static JLabel addLabel(JLabel label, Point pos, String text, JPanel panel)
+	{
+		label.setText(text);
+		label.setBounds(pos.x, pos.y, 200, 12);
+		label.setVisible(true);
+		panel.add(label, 9, 0);
+		return label;
+	}
+	
+	public static JButton addButton(JButton button, Point pos, String text, JPanel panel, ActionListener action)
+	{
+		button.setBounds(pos.x, pos.y, 100, 20);
+		button.setText(text);
+		button.addActionListener(action);
+		button.setVisible(true);
+		panel.add(button, 9, 0);
+		return button;
+	}
+	
 	/**
 	 * Adds a tile to the interactable tile-grid at the specified Point in the specified World.
 	 * @since 04-08-2016
@@ -34,10 +56,20 @@ public class GuiScreen
 	{
 		Tile tile = new Tile(position);
 		tile.setVisible(true);
-		tile.addMouseListener(new TileMouseListener(tile));
+		tile.addMouseListener(new TileMouseListener(tile, world));
 		panel.add(tile, 5, 0);
 		world.getTileList().add(tile);
 		return tile;
+	}
+	
+	public static JLabel addTileInfo(Point pos, JPanel panel, World world)
+	{
+		JLabel label = new JLabel();
+		label.setBounds(pos.x, pos.y, 200, 12);
+		label.setVisible(true);
+		panel.add(label, 4, 0);
+		world.getTileInfoList().add(label);
+		return label;
 	}
 	
 	public static JLabel addTilePainter(Point position, JPanel panel, String textureAssigner)
@@ -50,5 +82,14 @@ public class GuiScreen
 		tilePainter.addMouseListener(new TilePainterListener(tilePainter));
 		panel.add(tilePainter, 9, 0);
 		return tilePainter;
+	}
+	
+	public static JLabel addToggler(JLabel toggler, Point position, String name, JPanel panel, ImageIcon offState, MouseListener mouseListener)
+	{
+		GuiScreen.addImage(toggler, position, offState);
+		toggler.setName(name);
+		toggler.addMouseListener(mouseListener);
+		panel.add(toggler, 9, 0);
+		return toggler;
 	}
 }

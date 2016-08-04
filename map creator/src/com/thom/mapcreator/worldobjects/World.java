@@ -3,9 +3,15 @@ package com.thom.mapcreator.worldobjects;
 import java.awt.Point;
 import java.util.ArrayList;
 
+import javax.swing.JLabel;
+
 public class World 
 {
 	private ArrayList<Tile> tileList = new ArrayList<Tile>();
+	private ArrayList<JLabel> tileInfoList = new ArrayList<JLabel>();
+	
+	// Map Creator
+	private ArrayList<Tile> regionSelectionList = new ArrayList<Tile>();
 	
 	public World() 
 	{
@@ -50,5 +56,15 @@ public class World
 				tileList.set(i, tile);
 			}
 		}
+	}
+
+	public ArrayList<JLabel> getTileInfoList() 
+	{
+		return tileInfoList;
+	}
+	
+	public ArrayList<Tile> getRegionSelectionList()
+	{
+		return regionSelectionList;
 	}
 }

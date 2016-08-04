@@ -19,7 +19,7 @@ public class TilePainterListener implements MouseListener
 	@Override
 	public void mousePressed(MouseEvent arg0) 
 	{
-		MapCreator.textureSelected = tilePainter.getName();
+		MapCreator.setTextureSelected(tilePainter.getName());
 	}
 	
 	@Override
