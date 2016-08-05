@@ -13,7 +13,6 @@ import com.thom.gameengine.keybinding.KeyBind;
 import com.thom.gameengine.keybinding.KeyBinding;
 import com.thom.gameengine.player.Player;
 import com.thom.gameengine.player.PlayerMovementAction;
-import com.thom.gameengine.player.PlayerMovementActionDK;
 import com.thom.gameengine.sprite.AnimatedSprite;
 import com.thom.gameengine.sprite.SpriteSheet;
 import com.thom.gameengine.utility.ImageHandler;
@@ -60,16 +59,16 @@ public class TestTestGame extends Game2D
 
 	public void handleKeyBinds() 
 	{
-		PlayerMovementActionDK pma = new PlayerMovementActionDK(this, player, 24);
-		pma.addMoveAction(player, "A", -2, 0);
-		pma.addMoveAction(player, "D", 2, 0);
-		pma.addMoveAction(player, "W", 0, -2);
-		pma.addMoveAction(player, "S", 0, 2);
+//		PlayerMovementActionDK pma = new PlayerMovementActionDK(this, player, 24);
+//		pma.addMoveAction(player, "A", -2, 0);
+//		pma.addMoveAction(player, "D", 2, 0);
+//		pma.addMoveAction(player, "W", 0, -2);
+//		pma.addMoveAction(player, "S", 0, 2);
 		
-//		KeyBinding.addKeyBind(player, KeyBind.W, new PlayerMovementAction(player, AnimationState.back, 4));
-//		KeyBinding.addKeyBind(player, KeyBind.A, new PlayerMovementAction(player, AnimationState.left, 4));
-//		KeyBinding.addKeyBind(player, KeyBind.S, new PlayerMovementAction(player, AnimationState.front, 4));
-//		KeyBinding.addKeyBind(player, KeyBind.D, new PlayerMovementAction(player, AnimationState.right, 4));
+		KeyBinding.addKeyBind(player, KeyBind.W, new PlayerMovementAction(player, AnimationState.back, 4));
+		KeyBinding.addKeyBind(player, KeyBind.A, new PlayerMovementAction(player, AnimationState.left, 4));
+		KeyBinding.addKeyBind(player, KeyBind.S, new PlayerMovementAction(player, AnimationState.front, 4));
+		KeyBinding.addKeyBind(player, KeyBind.D, new PlayerMovementAction(player, AnimationState.right, 4));
 		
 		KeyBinding.addKeyBind(player, KeyBind.T, new PlayerTeleportAction(player, 10, 10));
 	}
