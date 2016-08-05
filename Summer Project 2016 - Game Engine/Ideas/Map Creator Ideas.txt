@@ -1,0 +1,9 @@
+Togglable Numbers on tiles - CHECK'ish
+Togglable Tile-Grid grid-border - CHECK
+
+Brushes
+Region Selection
+
+Undo
+Redo
+
