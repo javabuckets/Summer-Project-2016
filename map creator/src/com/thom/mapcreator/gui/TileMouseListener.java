@@ -1,10 +1,9 @@
 package com.thom.mapcreator.gui;
 
-import java.awt.Point;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-import com.thom.mapcreator.MapCreator;
+import com.thom.mapcreator.MapCreatorUtil;
 import com.thom.mapcreator.worldobjects.Tile;
 import com.thom.mapcreator.worldobjects.World;
 
@@ -26,73 +25,7 @@ public class TileMouseListener implements MouseListener
 	@Override
 	public void mousePressed(MouseEvent arg0) 
 	{
-		if (MapCreator.regionSelectorSetting != 0)
-		{
-			if (MapCreator.regionSelectorSetting == 2)
-			{
-				world.getRegionSelectionList().add(tile);
-				regionSelect();
-			}
-			else
-			{
-				world.getRegionSelectionList().add(tile);
-				MapCreator.regionSelectorSetting++;
-			}
-		}
-		else if (MapCreator.regionSelectorSetting == 0)
-			tile.attachTexture(MapCreator.getTextureSelected());
-	}
-	
-	private void regionSelect() 
-	{
-		int scenario = getScenario();
-		
-		Point tile1 = world.getRegionSelectionList().get(0).getTilePosition();
-		Point tile2 = world.getRegionSelectionList().get(1).getTilePosition();
-		
-		if (scenario == 1)
-		{
-			for (int x = tile2.x; x < tile1.x; x++)
-			{
-				for (int y = tile2.y; y < tile1.y; y++)
-				{
-					tile.attachTexture(MapCreator.getTextureSelected());
-				}
-			}
-		}
-		else if (scenario == 2)
-		{
-			
-		}
-		else if (scenario == 3)
-		{
-			
-		}
-		else if (scenario == 4)
-		{
-			
-		}
-	}
-	
-	private int getScenario()
-	{
-		Point tile1 = world.getRegionSelectionList().get(0).getTilePosition();
-		Point tile2 = world.getRegionSelectionList().get(1).getTilePosition();
-		
-		if (tile1.x > tile2.x)
-		{
-			if (tile1.y > tile2.y)
-				return 1;
-			else
-				return 3;
-		}
-		else
-		{
-			if (tile1.y > tile2.y)
-				return 2;
-			else
-				return 4;
-		}
+		tile.attachTexture(MapCreatorUtil.getTextureSelected());
 	}
 
 	@Override
@@ -104,7 +37,10 @@ public class TileMouseListener implements MouseListener
 	@Override
 	public void mouseEntered(MouseEvent arg0) 
 	{
-		
+		if (MapCreatorUtil.isFreehand() && MapCreatorUtil.isFPressed)
+		{
+			tile.attachTexture(MapCreatorUtil.getTextureSelected());
+		}
 	}
 
 	@Override

@@ -10,9 +10,6 @@ public class World
 	private ArrayList<Tile> tileList = new ArrayList<Tile>();
 	private ArrayList<JLabel> tileInfoList = new ArrayList<JLabel>();
 	
-	// Map Creator
-	private ArrayList<Tile> regionSelectionList = new ArrayList<Tile>();
-	
 	public World() 
 	{
 		
@@ -61,10 +58,5 @@ public class World
 	public ArrayList<JLabel> getTileInfoList() 
 	{
 		return tileInfoList;
-	}
-	
-	public ArrayList<Tile> getRegionSelectionList()
-	{
-		return regionSelectionList;
 	}
 }

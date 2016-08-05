@@ -9,7 +9,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import com.thom.mapcreator.action.FillAction;
-import com.thom.mapcreator.action.RegionFillAction;
+import com.thom.mapcreator.action.FreeHandAction;
 import com.thom.mapcreator.action.ToggleGridListener;
 import com.thom.mapcreator.action.ToggleTileNrAction;
 import com.thom.mapcreator.gui.GuiScreen;
@@ -23,21 +23,14 @@ import com.thom.mapcreator.worldobjects.World;
 @SuppressWarnings("serial")
 public class MapCreator extends JFrame
 {
-	private static String textureSelected = "GRASS";
-	
-	// Settings
-	public static int regionSelectorSetting = 0;
-	
 	public static void main(String[] args) 
 	{
 		new MapCreator();
 	}
 	
 	protected String assetsPath = new String("C:\\Users\\Thomas\\Desktop\\Projects\\Summer Project 2016 - Game Engine\\SpriteSheets\\");
-	
 	private World world = new World();
-	
-	JPanel panel;
+	private JPanel panel;
 	
 	public MapCreator() 
 	{
@@ -53,14 +46,15 @@ public class MapCreator extends JFrame
 		drawUI();
 	}
 
-	JLabel worktemplate = new JLabel();
-	static JLabel tps = new JLabel();
+	private JLabel worktemplate = new JLabel();
+	public static JLabel tps = new JLabel();
 	
-	JLabel toggleGrid = new JLabel();
-	JLabel toggleTileNumbers = new JLabel();
+	private JLabel toggleGrid = new JLabel();
+	private JLabel toggleTileNumbers = new JLabel();
 	
-	JButton fillButton = new JButton();
-	JButton regionSelectionButton = new JButton();
+	private JButton fillButton = new JButton();
+	//private JButton regionSelectionButton = new JButton();
+	private JButton freehandButton = new JButton();
 	
 	private void drawUI() 
 	{
@@ -83,7 +77,7 @@ public class MapCreator extends JFrame
 		/**
 		 * Tile Painters
 		 */
-		GuiScreen.addLabel(tps, new Point(875, 80), "Selected Tile Painter: " + getTextureSelected(), panel);
+		GuiScreen.addLabel(tps, new Point(875, 80), "Selected Tile Painter: " + MapCreatorUtil.getTextureSelected(), panel);
 		
 		GuiScreen.addTilePainter(new Point(875, 100), panel, "GRASS");
 		GuiScreen.addTilePainter(new Point(875+20, 100), panel, "WATER");
@@ -96,21 +90,10 @@ public class MapCreator extends JFrame
 		
 		// Action Buttons
 		GuiScreen.addButton(fillButton, new Point(875, 250), "Fill", panel, new FillAction(world));
-		GuiScreen.addButton(regionSelectionButton, new Point(875, 360), "Region Sel.", panel, new RegionFillAction(world));
+		
+		GuiScreen.addButton(freehandButton, new Point(875, 280), "Freehand", panel, new FreeHandAction(freehandButton, world));
+		freehandButton.addKeyListener(new FreehandKeyListener());
 		
 		repaint();
-	}
-	
-	
-	
-	public static String getTextureSelected()
-	{
-		return textureSelected;
-	}
-	
-	public static void setTextureSelected(String text)
-	{
-		textureSelected = text;
-		tps.setText("Selected Tile Painter: " + textureSelected);
 	}
 }

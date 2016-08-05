@@ -5,7 +5,7 @@ import java.awt.event.MouseListener;
 
 import javax.swing.JLabel;
 
-import com.thom.mapcreator.MapCreator;
+import com.thom.mapcreator.MapCreatorUtil;
 
 public class TilePainterListener implements MouseListener 
 {
@@ -19,7 +19,7 @@ public class TilePainterListener implements MouseListener
 	@Override
 	public void mousePressed(MouseEvent arg0) 
 	{
-		MapCreator.setTextureSelected(tilePainter.getName());
+		MapCreatorUtil.setTextureSelected(tilePainter.getName());
 	}
 	
 	@Override
