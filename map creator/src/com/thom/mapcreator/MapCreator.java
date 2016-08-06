@@ -10,10 +10,12 @@ import javax.swing.JPanel;
 
 import com.thom.mapcreator.action.FillAction;
 import com.thom.mapcreator.action.FreeHandAction;
+import com.thom.mapcreator.action.FreehandKeyListener;
 import com.thom.mapcreator.action.ToggleGridListener;
 import com.thom.mapcreator.action.ToggleTileNrAction;
 import com.thom.mapcreator.gui.GuiScreen;
 import com.thom.mapcreator.gui.ImageHandler;
+import com.thom.mapcreator.util.MapCreatorUtil;
 import com.thom.mapcreator.worldobjects.World;
 
 /**
@@ -78,21 +80,24 @@ public class MapCreator extends JFrame
 		 * Tile Painters
 		 */
 		GuiScreen.addLabel(tps, new Point(875, 80), "Selected Tile Painter: " + MapCreatorUtil.getTextureSelected(), panel);
-		
-		GuiScreen.addTilePainter(new Point(875, 100), panel, "GRASS");
-		GuiScreen.addTilePainter(new Point(875+20, 100), panel, "WATER");
-		GuiScreen.addTilePainter(new Point(875+40, 100), panel, "STONE");
+		// Adds all the sprites from spritesheet as Tile Painters
+		GuiScreen.addTilePainters(panel, ImageHandler.getImage(assetsPath + "gamesprite.png"), ImageHandler.getImage(assetsPath + "null.png"));
 
-		// Togglers
-		
+		/**
+		 * Togglers
+		 */
 		GuiScreen.addToggler(toggleGrid, new Point(1095, 10), "GRID OFF", panel, ImageHandler.getIcon(assetsPath + "switch_off.png"), new ToggleGridListener(toggleGrid, world));
 		GuiScreen.addToggler(toggleTileNumbers, new Point(1050, 10), "TILENR OFF", panel, ImageHandler.getIcon(assetsPath + "switch_off.png"), new ToggleTileNrAction(toggleTileNumbers, world));
 		
-		// Action Buttons
+		/**
+		 * Actions
+		 */
+		// Fill
 		GuiScreen.addButton(fillButton, new Point(875, 250), "Fill", panel, new FillAction(world));
-		
+		// Freehand
 		GuiScreen.addButton(freehandButton, new Point(875, 280), "Freehand", panel, new FreeHandAction(freehandButton, world));
 		freehandButton.addKeyListener(new FreehandKeyListener());
+		
 		
 		repaint();
 	}

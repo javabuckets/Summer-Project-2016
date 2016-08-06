@@ -1,9 +1,10 @@
-package com.thom.mapcreator.gui;
+package com.thom.mapcreator.action;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-import com.thom.mapcreator.MapCreatorUtil;
+import com.thom.mapcreator.util.MapCreatorUtil;
+import com.thom.mapcreator.util.TileTextureUtil;
 import com.thom.mapcreator.worldobjects.Tile;
 import com.thom.mapcreator.worldobjects.World;
 
@@ -25,7 +26,7 @@ public class TileMouseListener implements MouseListener
 	@Override
 	public void mousePressed(MouseEvent arg0) 
 	{
-		tile.attachTexture(MapCreatorUtil.getTextureSelected());
+		tile.attachTexture(MapCreatorUtil.getTextureSelected(), TileTextureUtil.getSpriteFromTextureName(MapCreatorUtil.getTextureSelected()));
 	}
 
 	@Override
@@ -39,7 +40,7 @@ public class TileMouseListener implements MouseListener
 	{
 		if (MapCreatorUtil.isFreehand() && MapCreatorUtil.isFPressed)
 		{
-			tile.attachTexture(MapCreatorUtil.getTextureSelected());
+			tile.attachTexture(MapCreatorUtil.getTextureSelected(), TileTextureUtil.getSpriteFromTextureName(MapCreatorUtil.getTextureSelected()));
 		}
 	}
 

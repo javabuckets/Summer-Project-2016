@@ -5,6 +5,10 @@ import java.awt.event.ActionListener;
 
 import com.thom.mapcreator.worldobjects.World;
 
+/**
+ * @author Thomas Boel Micheelsen
+ * @since 04-08-2016
+ */
 public class RegionFillAction implements ActionListener 
 {
 	World world;

@@ -10,6 +10,10 @@ import javax.swing.border.LineBorder;
 import com.thom.mapcreator.gui.ImageHandler;
 import com.thom.mapcreator.worldobjects.World;
 
+/**
+ * @author Thomas Boel Micheelsen
+ * @since 03-08-2016
+ */
 public class ToggleGridListener implements MouseListener 
 {
 	JLabel toggleGrid;

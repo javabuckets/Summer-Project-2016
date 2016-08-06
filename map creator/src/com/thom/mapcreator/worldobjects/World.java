@@ -5,6 +5,10 @@ import java.util.ArrayList;
 
 import javax.swing.JLabel;
 
+/**
+ * @author Thomas Boel Micheelsen
+ * @since 04-08-2016
+ */
 public class World 
 {
 	private ArrayList<Tile> tileList = new ArrayList<Tile>();

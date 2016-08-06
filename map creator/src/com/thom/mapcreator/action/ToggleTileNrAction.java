@@ -8,6 +8,10 @@ import javax.swing.JLabel;
 import com.thom.mapcreator.gui.ImageHandler;
 import com.thom.mapcreator.worldobjects.World;
 
+/**
+ * @author Thomas Boel Micheelsen
+ * @since 03-08-2016
+ */
 public class ToggleTileNrAction implements MouseListener 
 {
 	JLabel toggleTileNumbers;

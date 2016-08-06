@@ -5,8 +5,6 @@ import java.awt.Point;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
-import com.thom.mapcreator.util.TileTextureUtil;
-
 /**
  * @author Thomas Boel Micheelsen
  * @since 04-08-2016
@@ -50,10 +48,10 @@ public class Tile extends JLabel
 		return textureAttached;
 	}
 
-	public void attachTexture(String texture) 
+	public void attachTexture(String texture, ImageIcon imageIcon) 
 	{
 		this.textureAttached = texture;
-		setSprite(TileTextureUtil.getSpriteFromTextureName(texture));
+		setSprite(imageIcon);
 		setTileName();
 	}
 	

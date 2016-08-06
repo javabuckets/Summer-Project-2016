@@ -1,8 +1,14 @@
-package com.thom.mapcreator;
+package com.thom.mapcreator.action;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
+import com.thom.mapcreator.util.MapCreatorUtil;
+
+/**
+ * @author Thomas Boel Micheelsen
+ * @since 05-08-2016
+ */
 public class FreehandKeyListener implements KeyListener 
 {
 	@Override

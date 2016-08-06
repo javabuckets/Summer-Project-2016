@@ -6,9 +6,13 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 
-import com.thom.mapcreator.MapCreatorUtil;
+import com.thom.mapcreator.util.MapCreatorUtil;
 import com.thom.mapcreator.worldobjects.World;
 
+/**
+ * @author Thomas Boel Micheelsen
+ * @since 04-08-2016
+ */
 public class FreeHandAction implements ActionListener 
 {
 	JButton button;

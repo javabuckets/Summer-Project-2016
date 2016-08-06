@@ -1,12 +1,16 @@
-package com.thom.mapcreator.gui;
+package com.thom.mapcreator.action;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 import javax.swing.JLabel;
 
-import com.thom.mapcreator.MapCreatorUtil;
+import com.thom.mapcreator.util.MapCreatorUtil;
 
+/**
+ * @author Thomas Boel Micheelsen
+ * @since 04-08-2016
+ */
 public class TilePainterListener implements MouseListener 
 {
 	JLabel tilePainter;

@@ -1,8 +1,14 @@
-package com.thom.mapcreator;
+package com.thom.mapcreator.util;
 
+import com.thom.mapcreator.MapCreator;
+
+/**
+ * @author Thomas Boel Micheelsen
+ * @since 04-08-2016
+ */
 public class MapCreatorUtil 
 {
-	private static String textureSelected = "GRASS";
+	private static String textureSelected = "0,0";
 	
 	private static boolean isFreehand = false;
 	public static boolean isFPressed = false;
