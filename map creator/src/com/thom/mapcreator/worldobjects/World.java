@@ -3,6 +3,7 @@ package com.thom.mapcreator.worldobjects;
 import java.awt.Point;
 import java.util.ArrayList;
 
+import javax.swing.Icon;
 import javax.swing.JLabel;
 
 /**
@@ -13,6 +14,9 @@ public class World
 {
 	private ArrayList<Tile> tileList = new ArrayList<Tile>();
 	private ArrayList<JLabel> tileInfoList = new ArrayList<JLabel>();
+	
+	// Save-Load
+	private ArrayList<Icon> tileIconList = new ArrayList<Icon>();
 	
 	public World() 
 	{
@@ -62,5 +66,10 @@ public class World
 	public ArrayList<JLabel> getTileInfoList() 
 	{
 		return tileInfoList;
+	}
+
+	public ArrayList<Icon> getTileIconList() 
+	{
+		return tileIconList;
 	}
 }

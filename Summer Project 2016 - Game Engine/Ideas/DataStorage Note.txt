@@ -1,0 +1,4 @@
+We need a way to create new tile lists (world tile list) using data saved from previous tile lists.
+Position, imageicon (path & imgName), collision or not, layer, etc.
+The new (loaded) tile list, needs to consist (NEEDS) of new Tile()'s.
+We cannot convert from String (Tile.toString() practically) to Tile.

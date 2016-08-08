@@ -11,6 +11,7 @@ import javax.swing.JPanel;
 import com.thom.mapcreator.action.FillAction;
 import com.thom.mapcreator.action.FreeHandAction;
 import com.thom.mapcreator.action.FreehandKeyListener;
+import com.thom.mapcreator.action.SaveLoadAction;
 import com.thom.mapcreator.action.ToggleGridListener;
 import com.thom.mapcreator.action.ToggleTileNrAction;
 import com.thom.mapcreator.gui.GuiScreen;
@@ -58,10 +59,13 @@ public class MapCreator extends JFrame
 	//private JButton regionSelectionButton = new JButton();
 	private JButton freehandButton = new JButton();
 	
+	private JButton save = new JButton();
+	private JButton load = new JButton();
+	
 	private void drawUI() 
 	{
 		// Background Template Image
-		GuiScreen.addImage(worktemplate, new Point(0, 0), ImageHandler.getIcon("C:\\Users\\Thomas\\Desktop\\workplate_small.png"));
+		GuiScreen.addImage(worktemplate, new Point(0, 0), ImageHandler.getIcon(assetsPath + "workplate_small.png"));
 		panel.add(worktemplate, 10, 0);
 		
 		/**
@@ -98,6 +102,12 @@ public class MapCreator extends JFrame
 		GuiScreen.addButton(freehandButton, new Point(875, 280), "Freehand", panel, new FreeHandAction(freehandButton, world));
 		freehandButton.addKeyListener(new FreehandKeyListener());
 		
+		// Test Subjects
+		GuiScreen.addButton(save, new Point(990, 250), "Save", panel, new SaveLoadAction("SAVE", world));
+		GuiScreen.addButton(load, new Point(990, 280), "Load", panel, new SaveLoadAction("LOAD", world));
+		
+		GuiScreen.addButton(new JButton(), new Point(875, 310), "makeFile", panel, new MakeFileAction("write", world));
+		GuiScreen.addButton(new JButton(), new Point(990, 310), "readFile", panel, new MakeFileAction("read", world));
 		
 		repaint();
 	}

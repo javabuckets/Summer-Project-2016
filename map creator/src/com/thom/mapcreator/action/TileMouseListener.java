@@ -26,7 +26,7 @@ public class TileMouseListener implements MouseListener
 	@Override
 	public void mousePressed(MouseEvent arg0) 
 	{
-		tile.attachTexture(MapCreatorUtil.getTextureSelected(), TileTextureUtil.getSpriteFromTextureName(MapCreatorUtil.getTextureSelected()));
+		attachTextureToTile(tile);
 	}
 
 	@Override
@@ -40,7 +40,7 @@ public class TileMouseListener implements MouseListener
 	{
 		if (MapCreatorUtil.isFreehand() && MapCreatorUtil.isFPressed)
 		{
-			tile.attachTexture(MapCreatorUtil.getTextureSelected(), TileTextureUtil.getSpriteFromTextureName(MapCreatorUtil.getTextureSelected()));
+			attachTextureToTile(tile);
 		}
 	}
 
@@ -54,5 +54,10 @@ public class TileMouseListener implements MouseListener
 	public void mouseReleased(MouseEvent arg0) 
 	{
 		
+	}
+	
+	private void attachTextureToTile(Tile tile)
+	{
+		tile.attachTexture(MapCreatorUtil.getTextureSelected(), TileTextureUtil.getSpriteFromTextureName(MapCreatorUtil.getTextureSelected()));
 	}
 }
