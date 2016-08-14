@@ -5,8 +5,8 @@ import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
-import javax.swing.ImageIcon;
 
+import com.thom.mapcreator.util.CustomImageIcon;
 import com.thom.mapcreator.util.ImageUtil;
 
 /**
@@ -32,9 +32,9 @@ public class ImageHandler
 		return img;
 	}
 	
-	public static ImageIcon getIcon(String localPath)
+	public static CustomImageIcon getIcon(String localPath)
 	{
-		return new ImageIcon(localPath);
+		return new CustomImageIcon(localPath);
 	}
 	
 	public static boolean compareImages(BufferedImage img1, BufferedImage img2)

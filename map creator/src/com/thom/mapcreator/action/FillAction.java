@@ -3,8 +3,7 @@ package com.thom.mapcreator.action;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.ImageIcon;
-
+import com.thom.mapcreator.util.CustomImageIcon;
 import com.thom.mapcreator.util.MapCreatorUtil;
 import com.thom.mapcreator.util.TileTextureUtil;
 import com.thom.mapcreator.worldobjects.World;
@@ -28,7 +27,7 @@ public class FillAction implements ActionListener
 	{
 		if (lastFill != MapCreatorUtil.getTextureSelected())
 		{
-			ImageIcon imgIcon = TileTextureUtil.getSpriteFromTextureName(MapCreatorUtil.getTextureSelected());
+			CustomImageIcon imgIcon = TileTextureUtil.getSpriteFromTextureName(MapCreatorUtil.getTextureSelected());
 			
 			for (int i = 0; i < world.getTileList().size(); i++)
 			{

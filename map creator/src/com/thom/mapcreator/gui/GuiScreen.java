@@ -14,6 +14,7 @@ import javax.swing.border.LineBorder;
 
 import com.thom.mapcreator.action.TileMouseListener;
 import com.thom.mapcreator.action.TilePainterListener;
+import com.thom.mapcreator.util.CustomImageIcon;
 import com.thom.mapcreator.util.TileTextureUtil;
 import com.thom.mapcreator.worldobjects.Tile;
 import com.thom.mapcreator.worldobjects.World;
@@ -60,6 +61,7 @@ public class GuiScreen
 		Tile tile = new Tile(position);
 		tile.setVisible(true);
 		tile.addMouseListener(new TileMouseListener(tile, world));
+		tile.setImageIcon(new CustomImageIcon("null"));
 		panel.add(tile, 5, 0);
 		world.getTileList().add(tile);
 		return tile;

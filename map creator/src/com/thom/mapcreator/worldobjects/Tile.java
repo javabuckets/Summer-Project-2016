@@ -2,8 +2,9 @@ package com.thom.mapcreator.worldobjects;
 
 import java.awt.Point;
 
-import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+
+import com.thom.mapcreator.util.CustomImageIcon;
 
 /**
  * @author Thomas Boel Micheelsen
@@ -14,6 +15,7 @@ public class Tile extends JLabel
 {
 	private Point tilePosition;
 	private String textureAttached = "NULL";
+	private CustomImageIcon icon;
 	
 	public Tile(Point pos) 
 	{
@@ -26,11 +28,6 @@ public class Tile extends JLabel
 	private void setTileName() 
 	{
 		setName(";"+tilePosition.x + "," + tilePosition.y+","+textureAttached+";");
-	}
-
-	public void setSprite(ImageIcon texture)
-	{
-		this.setIcon(texture);
 	}
 
 	public Point getTilePosition() 
@@ -48,10 +45,10 @@ public class Tile extends JLabel
 		return textureAttached;
 	}
 
-	public void attachTexture(String texture, ImageIcon imageIcon) 
+	public void attachTexture(String texture, CustomImageIcon imageIcon) 
 	{
 		this.textureAttached = texture;
-		setSprite(imageIcon);
+		setImageIcon(imageIcon);
 		setTileName();
 	}
 	
@@ -59,5 +56,16 @@ public class Tile extends JLabel
 	{
 		String s = getName().replace(";", "");
 		return s;
+	}
+
+	public CustomImageIcon getImageIcon() 
+	{
+		return icon;
+	}
+
+	public void setImageIcon(CustomImageIcon icon) 
+	{
+		this.icon = icon;
+		setIcon(icon);
 	}
 }
