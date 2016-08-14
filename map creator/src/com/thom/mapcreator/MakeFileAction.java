@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 
+import com.thom.mapcreator.util.TileTextureUtil;
 import com.thom.mapcreator.worldobjects.Tile;
 import com.thom.mapcreator.worldobjects.World;
 
@@ -61,8 +62,16 @@ public class MakeFileAction implements ActionListener
 					String currLine = br.readLine();
 					
 					Point tilePos = getTilePos(currLine);
+					String texturePos = getTexturePos(currLine);
+					String spritesheet = getSpriteSheet(currLine);
 					
+					Tile tile = new Tile(tilePos);
+					tile.attachTexture(texturePos, TileTextureUtil.getSpriteFromSpritesheet(spritesheet, texturePos));
+					
+					tileList.add(tile);
 				}
+				
+				world.setTileList(tileList);
 				
 				br.close();
 			} 
@@ -86,5 +95,20 @@ public class MakeFileAction implements ActionListener
 		int y = Integer.valueOf(sY);
 		
 		return new Point(x, y);
+	}
+	
+	private String getTexturePos(String line)
+	{
+		String s = line.substring(0, line.indexOf("; ~"));
+		String s1 = s.substring(s.indexOf(','));
+		String s2 = s1.substring(1);
+		String s3 = s2.substring(s2.indexOf(',')).substring(1);
+		return s3;
+	}
+	
+	private String getSpriteSheet(String line)
+	{
+		String s = line.substring(line.indexOf("Texture: "), line.lastIndexOf(';')).substring(9);
+		return s;
 	}
 }

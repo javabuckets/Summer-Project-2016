@@ -16,4 +16,11 @@ public class TileTextureUtil
 		icon.setLocalPath(assetsPath + "gamesprite.png");
 		return icon;
 	}
+	
+	public static CustomImageIcon getSpriteFromSpritesheet(String spritesheetPath, String texturePos) 
+	{
+		CustomImageIcon icon = new CustomImageIcon(ImageHandler.getImage(spritesheetPath).getSubimage(Integer.valueOf(texturePos.substring(0, texturePos.indexOf(','))), Integer.valueOf(texturePos.substring(texturePos.indexOf(',')+1, texturePos.length())), 16, 16));
+		icon.setLocalPath(spritesheetPath);
+		return icon;
+	}
 }
