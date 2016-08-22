@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 
+import com.thom.mapcreator.util.CustomImageIcon;
 import com.thom.mapcreator.util.TileTextureUtil;
 import com.thom.mapcreator.worldobjects.Tile;
 import com.thom.mapcreator.worldobjects.World;
@@ -31,54 +32,77 @@ public class MakeFileAction implements ActionListener
 	{
 		if (action == "write")
 		{
-			try 
-			{
-				FileWriter fw = new FileWriter(new File("C:\\Users\\Thomas\\Desktop\\worldData.txt"));
-				PrintWriter pw = new PrintWriter(fw);
-				
-				for (int i = 0; i < world.getTileList().size(); i++)
-				{
-					pw.println(world.getTileList().get(i).getName() + " ~ " + "Texture: " + world.getTileList().get(i).getImageIcon().getLocalPath() + ";");
-				}
-				
-				pw.close();
-			} 
-			catch (IOException e1) 
-			{
-				e1.printStackTrace();
-			}
+			writeFile();
 		}
 		
 		else if (action == "read")
 		{
-			try 
+			readFile();
+		}
+	}
+	
+	/**
+	 * Saves/Overrides the world file.
+	 */
+	private void writeFile()
+	{
+		try 
+		{
+			FileWriter fw = new FileWriter(new File("C:\\Users\\Thomas\\Desktop\\worldData.txt"));
+			PrintWriter pw = new PrintWriter(fw);
+			
+			for (int i = 0; i < world.getTileList().size(); i++)
 			{
-				FileReader fr = new FileReader(new File("C:\\Users\\Thomas\\Desktop\\worldData.txt"));
-				BufferedReader br = new BufferedReader(fr);
-				ArrayList<Tile> tileList = new ArrayList<Tile>();
-				
-				for (int i = 0; i < world.getTileList().size(); i++)
-				{
-					String currLine = br.readLine();
-					
-					Point tilePos = getTilePos(currLine);
-					String texturePos = getTexturePos(currLine);
-					String spritesheet = getSpriteSheet(currLine);
-					
-					Tile tile = new Tile(tilePos);
-					tile.attachTexture(texturePos, TileTextureUtil.getSpriteFromSpritesheet(spritesheet, texturePos));
-					
-					tileList.add(tile);
-				}
-				
-				world.setTileList(tileList);
-				
-				br.close();
-			} 
-			catch (IOException e1) 
-			{
-				e1.printStackTrace();
+				pw.println(world.getTileList().get(i).getName() + " ~ " + "Texture: " + world.getTileList().get(i).getImageIcon().getLocalPath() + ";");
 			}
+			
+			pw.close();
+		} 
+		catch (IOException e1) 
+		{
+			e1.printStackTrace();
+		}
+	}
+	
+	/**
+	 * Loads the world file to the program.
+	 */
+	private ArrayList<CustomImageIcon> texturesLoaded = new ArrayList<CustomImageIcon>();
+	
+	private void readFile()
+	{
+		try 
+		{
+			FileReader fr = new FileReader(new File("C:\\Users\\Thomas\\Desktop\\worldData.txt"));
+			BufferedReader br = new BufferedReader(fr);
+			ArrayList<Tile> tileList = new ArrayList<Tile>();
+			
+			for (int i = 0; i < world.getTileList().size(); i++)
+			{
+				String currLine = br.readLine();
+				
+				Point tilePos = getTilePos(currLine);
+				String texturePos = getTexturePos(currLine);
+				String spritesheet = getSpriteSheet(currLine);
+				
+				Tile tile = new Tile(tilePos);
+				tile.attachTexture(texturePos, TileTextureUtil.getSpriteFromSpritesheet(spritesheet, texturePos));
+				
+				tileList.add(tile);
+			}
+			
+			world.setTileList(tileList);
+			
+			/*for (int i = 0; i < world.getTileList().size(); i++)
+			{
+				world.getTileList().get(i).setIcon(tileList.get(i).getIcon());
+			}*/
+			
+			br.close();
+		} 
+		catch (IOException e1) 
+		{
+			e1.printStackTrace();
 		}
 	}
 	
