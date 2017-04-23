@@ -12,5 +12,18 @@ public enum AnimationState
 	front,
 	back,
 	left,
-	right;
+	right,
+	
+	/**
+	 * @since 13-04-2017
+	 */
+	idle,
+	jumping,
+	falling, 
+	dancing,
+	crouching,
+	talking,
+	playing;
+	
+	// Add further states if needed
 }

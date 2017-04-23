@@ -1,18 +1,18 @@
-package com.thom.gameengine.sprite;
+package com.thom.gameengine.spritesystem;
 
 import java.awt.Dimension;
 import java.awt.image.BufferedImage;
 
 import javax.swing.ImageIcon;
 
-import com.thom.gameengine.gameobject.GameObject;
+import com.thom.gameengine.gui.Label;
 
 /**
  * @author Thomas Boel Micheelsen
  * @since 10-07-2016
  */
 @SuppressWarnings("serial")
-public class SpriteSheet extends GameObject
+public class SpriteSheet extends Label
 {
 	private BufferedImage spritesheet;
 	private Dimension spriteSizes;;

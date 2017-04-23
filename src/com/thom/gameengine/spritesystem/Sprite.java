@@ -1,15 +1,15 @@
-package com.thom.gameengine.sprite;
+package com.thom.gameengine.spritesystem;
 
 import javax.swing.ImageIcon;
 
-import com.thom.gameengine.gameobject.GameObject;
+import com.thom.gameengine.gui.Label;
 
 /**
  * @author Thomas Boel Micheelsen
  * @since 10-07-2016
  */
 @SuppressWarnings("serial")
-public class Sprite extends GameObject
+public class Sprite extends Label
 {
 	protected SpriteSheet spritesheet;
 	private int row, column;

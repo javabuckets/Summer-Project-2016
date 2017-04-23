@@ -1,8 +1,8 @@
-package com.thom.gameengine.entity;
+package com.thom.gameengine.entities;
 
 import java.awt.Point;
 
-import com.thom.gameengine.sprite.AnimatedSprite;
+import com.thom.gameengine.spritesystem.AnimatedSprite;
 
 /**
  * @author Thomas Boel Micheelsen

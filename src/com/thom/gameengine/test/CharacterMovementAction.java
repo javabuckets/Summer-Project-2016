@@ -1,17 +1,14 @@
-package com.thom.gameengine.player;
+package com.thom.gameengine.test;
 
 import java.awt.event.ActionEvent;
 
 import com.thom.gameengine.action.GameAction;
 import com.thom.gameengine.animation.AnimationState;
-import com.thom.gameengine.sprite.Sprite;
+import com.thom.gameengine.player.Player;
+import com.thom.gameengine.spritesystem.Sprite;
 
-/**
- * @author Thomas Boel Micheelsen
- * @since 11-07-2016
- */
 @SuppressWarnings("serial")
-public class PlayerMovementAction extends GameAction
+public class CharacterMovementAction extends GameAction
 {
 	Player player;
 	AnimationState state;
@@ -19,7 +16,7 @@ public class PlayerMovementAction extends GameAction
 	
 	int stage = 1;
 	
-	public PlayerMovementAction(Player player, AnimationState state, int speed) 
+	public CharacterMovementAction(Player player, AnimationState state, int speed) 
 	{
 		this.player = player;
 		this.state = state;

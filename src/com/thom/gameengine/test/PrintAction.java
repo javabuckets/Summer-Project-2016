@@ -1,4 +1,4 @@
-package com.thom.gameengine.zTesting;
+package com.thom.gameengine.test;
 
 import java.awt.event.ActionEvent;
 

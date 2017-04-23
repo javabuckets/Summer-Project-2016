@@ -1,35 +1,37 @@
-package com.thom.gameengine.gameobject;
+package com.thom.gameengine.entities;
 
 import java.awt.Dimension;
 import java.awt.Point;
 
+import com.thom.gameengine.gameobjects.GameObject;
+
 /**
  * @author Thomas Boel Micheelsen
- * @since 01-08-2016
+ * @since 11-07-2016
  */
 @SuppressWarnings("serial")
-public class GameObjectCollider extends GameObject
+public class EntityCollider extends GameObject
 {
-	private GameObject mother;
+	private Entity entity;
 	private Dimension collisionBox;
 	private Point collisionBoxPosition;
 	
-	public GameObjectCollider(GameObject gameObject, Dimension collisionBoxSize, Point collisionBoxPosition)
+	public EntityCollider(Entity entity, Dimension collisionBoxSize, Point collisionBoxPosition) 
 	{
 		super();
-		this.setGameObject(gameObject);
-		this.setCollisionBox(collisionBoxSize);
+		this.setEntity(entity);
+		this.setCollisionBox(collisionBox);
 		this.setCollisionBoxPosition(collisionBoxPosition);
 	}
 
-	public GameObject getGameObject() 
+	public Entity getEntity() 
 	{
-		return mother;
+		return entity;
 	}
 
-	public void setGameObject(GameObject mother) 
+	public void setEntity(Entity entity) 
 	{
-		this.mother = mother;
+		this.entity = entity;
 	}
 
 	public Dimension getCollisionBox() 

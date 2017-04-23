@@ -1,29 +1,29 @@
 package com.thom.gameengine.player;
 
-import com.thom.gameengine.entity.Entity;
-import com.thom.gameengine.gameobject.GameObjectCollider;
-import com.thom.gameengine.sprite.AnimatedSprite;
+import com.thom.gameengine.entities.Entity;
+import com.thom.gameengine.entities.EntityCollider;
+import com.thom.gameengine.spritesystem.AnimatedSprite;
 
 /**
  * @author Thomas Boel Micheelsen
- * @since 01-08-2016
+ * @since 12-07-2016
  */
 @SuppressWarnings("serial")
 public class Player extends Entity
 {
-	private GameObjectCollider collider;
+	private EntityCollider collider;
 	
-	public Player(AnimatedSprite sprite)
+	public Player(AnimatedSprite sprite) 
 	{
 		super(sprite);
 	}
-	
-	public GameObjectCollider getCollider()
+
+	public EntityCollider getCollider() 
 	{
 		return collider;
 	}
-	
-	public void setCollider(GameObjectCollider collider) 
+
+	public void setCollider(EntityCollider collider) 
 	{
 		this.collider = collider;
 	}

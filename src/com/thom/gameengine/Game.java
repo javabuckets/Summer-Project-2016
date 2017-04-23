@@ -1,14 +1,9 @@
 package com.thom.gameengine;
 
 import java.awt.Dimension;
-import java.awt.Point;
-import java.util.HashMap;
-import java.util.Map;
 
 import javax.swing.JComponent;
 import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.Timer;
 
 import com.thom.gameengine.gametype.GameType;
 import com.thom.gameengine.keybinding.KeyStrokeList;
@@ -16,24 +11,23 @@ import com.thom.gameengine.world.World;
 
 /**
  * @author Thomas Boel Micheelsen
- * @since 31-07-2016
+ * @since 02-07-2016
  */
 @SuppressWarnings("serial")
-public abstract class Game2D extends JFrame
+public abstract class Game extends JFrame
 {
-	protected JPanel gamePanel = new JPanel(null);
-	protected Dimension screenSize;
-	
+	protected GamePanel gamePanel = new GamePanel();
 	protected World world = new World();
 	
-	public Timer timer;
-	public Map<String, Point> pressedKeys = new HashMap<String, Point>();
+	protected String assetsPath;
 	
-	public Game2D(Dimension size)
+	protected Dimension screenSize;
+	
+	public Game(Dimension par1Dimension, boolean windowed)
 	{
-		super("Made using Game Engine 2D by Thomas Boel Micheelsen");
-		this.setScreenSize(size);
+		this.setScreenSize(par1Dimension);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setUndecorated(!windowed);
 		setFocusable(true);	
 		setVisible(true);
 		add(gamePanel);
@@ -46,7 +40,23 @@ public abstract class Game2D extends JFrame
 	}
 	
 	/**
-	 * Make sure the initialize() function is called in the END of the constructor.
+	 * @since 23-04-2017
+	 */
+	public void setAssetsPath(String assetsPath) 
+	{
+		this.assetsPath = assetsPath;
+	}
+	
+	/**
+	 * @since 23-04-2017
+	 */
+	public String getAssetsPath() 
+	{
+		return assetsPath;
+	}
+
+	/**
+	 * Make sure the initialize() function is called at the END of the constructor and ONLY once.
 	 */
 	public void initialize()
 	{
@@ -55,12 +65,28 @@ public abstract class Game2D extends JFrame
 		handleKeyBinds();
 	}
 	
+	/**
+	 * @since 23-04-2017
+	 */
+	public void updateGUI()
+	{
+		repaint();
+	}
+
 	public abstract GameType getGameType();
-	
+
 	public abstract void handleKeyBinds();
 	
 	public void addComponent(JComponent component, int priority)
 	{
 		gamePanel.add(component, priority, 0);
+	}
+	
+	/**
+	 * @since 23-04-2017
+	 */
+	public void removeComponent(JComponent component)
+	{
+		gamePanel.remove(component);
 	}
 }

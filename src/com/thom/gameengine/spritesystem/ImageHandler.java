@@ -1,4 +1,4 @@
-package com.thom.gameengine.utility;
+package com.thom.gameengine.spritesystem;
 
 import java.awt.image.BufferedImage;
 import java.io.File;

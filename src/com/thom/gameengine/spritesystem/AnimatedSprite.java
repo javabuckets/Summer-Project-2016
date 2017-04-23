@@ -1,4 +1,4 @@
-package com.thom.gameengine.sprite;
+package com.thom.gameengine.spritesystem;
 
 import java.util.ArrayList;
 
