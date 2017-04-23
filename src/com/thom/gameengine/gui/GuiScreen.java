@@ -5,6 +5,8 @@ import java.awt.Dimension;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import com.thom.gameengine.keybinding.KeyStrokeList;
+
 public abstract class GuiScreen extends JFrame
 {
 	public JPanel panel;
@@ -19,6 +21,8 @@ public abstract class GuiScreen extends JFrame
 		this.add(panel);
 		
 		drawScreen(size.width, size.height);
+		new KeyStrokeList();
+		handleKeyBinds();
 	}
 	
 	public void setAssetsPath(String assetsPath) 
@@ -27,4 +31,6 @@ public abstract class GuiScreen extends JFrame
 	}
 	
 	public abstract void drawScreen(int width, int height);
+	
+	public abstract void handleKeyBinds();
 }

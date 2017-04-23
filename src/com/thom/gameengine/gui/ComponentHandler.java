@@ -1,5 +1,6 @@
 package com.thom.gameengine.gui;
 
+import java.awt.Dimension;
 import java.awt.Image;
 import java.awt.Point;
 
@@ -10,7 +11,6 @@ import com.thom.gameengine.gameobjects.GameObject;
 import com.thom.gameengine.gameobjects.GameObjectCollider;
 import com.thom.gameengine.gameobjects.Particle;
 import com.thom.gameengine.player.Player;
-import com.thom.gameengine.spritesystem.ImageHandler;
 import com.thom.gameengine.spritesystem.Sprite;
 
 /**
@@ -74,5 +74,16 @@ public class ComponentHandler
 		Image img = image.getImage().getScaledInstance(widthScale, heightScale, Image.SCALE_DEFAULT);
 		addImageLabel(label, position, new ImageIcon(img));
 		return label;
+	}
+	
+	/**
+	 * @since 23-04-2017
+	 */
+	public static Button addButton(Button button, Point position, Dimension size, String contents)
+	{
+		button.setBounds(position.x, position.y, size.width, size.height);
+		button.setText(contents);
+		button.setVisible(true);
+		return button;
 	}
 }
