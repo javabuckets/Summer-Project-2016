@@ -33,6 +33,23 @@ public class SoundHandler
 		}
 	}
 	
+	public static void playSoundAsLoop(String soundPath)
+	{
+		try 
+		{
+			AudioInputStream ais = AudioSystem.getAudioInputStream(new File(soundPath).getAbsoluteFile());
+			Clip clip = AudioSystem.getClip();
+			clip.open(ais);
+			clip.loop(Clip.LOOP_CONTINUOUSLY);
+			clips.add(clip);
+		} 
+		catch (Exception e) 
+		{
+			System.err.println("Couldn't play sound at: " + soundPath);
+			e.printStackTrace();
+		}
+	}
+	
 	public static void stopSound(Clip clip)
 	{
 		for (Clip c : clips)

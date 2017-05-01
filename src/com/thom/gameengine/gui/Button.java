@@ -13,6 +13,12 @@ public class Button extends Label
 {
 	public ImageIcon idle, hover;
 	
+	public Button(ImageIcon icon)
+	{
+		super(icon);
+		addMouseHoverListener();
+	}
+	
 	public Button(String text) 
 	{
 		super(text);
