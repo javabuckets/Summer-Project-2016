@@ -60,7 +60,7 @@ public abstract class Game extends JFrame
 	 */
 	public void initialize()
 	{
-		repaint();
+		updateGUI();
 		new KeyStrokeList();
 		handleKeyBinds();
 	}
