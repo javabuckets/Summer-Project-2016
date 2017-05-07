@@ -14,6 +14,8 @@ public abstract class GuiScreen extends JFrame
 	
 	public GuiScreen(String title, Dimension size) 
 	{
+		initialize();
+		
 		setSize(size);
 		setTitle(title);
 		
@@ -29,6 +31,9 @@ public abstract class GuiScreen extends JFrame
 	{
 		this.assetsPath = assetsPath;
 	}
+	
+	// Initialize is always called first
+	public void initialize() { }
 	
 	public abstract void drawScreen(int width, int height);
 	
